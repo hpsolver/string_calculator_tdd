@@ -16,6 +16,12 @@ class StringCalculator{
     final numParts = numberString.replaceAll('\n', delimiter).split(delimiter);
     final nums = numParts.map(int.parse).toList();
 
+    // Check for negative numbers
+    final negatives = nums.where((n) => n < 0).toList();
+    if (negatives.isNotEmpty) {
+      throw Exception('Negative numbers not allowed: ${negatives.join(',')}');
+    }
+
     return nums.reduce((a, b) => a + b);
   }
 }

@@ -22,11 +22,15 @@ void main() {
       expect(calculator.add('1\n2,3'), equals(6));
     });
 
-    test('supports custom delimiters defined at the beginning of the string', () {
+    test('supports custom delimiters defined at the beginning of the string',
+        () {
       final calculator = StringCalculator();
       expect(calculator.add('//;\n1;2'), equals(3));
     });
 
-
+    test('throws an exception for negative numbers', () {
+      final calculator = StringCalculator();
+      expect(() => calculator.add('1,-2,3'), throwsA(isA<Exception>()));
+    });
   });
 }
