@@ -37,5 +37,11 @@ void main() {
       final calculator = StringCalculator();
       expect(calculator.add('2,1001'), equals(2));
     });
+
+    test('supports multiple delimiters of any length', () {
+      final calculator = StringCalculator();
+      expect(calculator.add('//[*][%]\n1*2%3'), equals(6));
+    });
+
   });
 }
