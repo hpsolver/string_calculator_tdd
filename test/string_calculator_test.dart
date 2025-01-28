@@ -13,5 +13,8 @@ void main() {
       expect(calculator.add('5'), equals(5));
     });
 
+    test('returns the sum of numbers separated by a comma', () {
+      expect(calculator.add('1,5'), equals(6));
+    });
   });
 }
