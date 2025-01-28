@@ -22,6 +22,9 @@ class StringCalculator{
       throw Exception('Negative numbers not allowed: ${negatives.join(',')}');
     }
 
-    return nums.reduce((a, b) => a + b);
+    // Ignore numbers greater than 1000
+    final validNumbers = nums.where((n) => n <= 1000).toList();
+
+    return validNumbers.reduce((a, b) => a + b);
   }
 }

@@ -32,5 +32,10 @@ void main() {
       final calculator = StringCalculator();
       expect(() => calculator.add('1,-2,3'), throwsA(isA<Exception>()));
     });
+
+    test('ignores numbers greater than 1000', () {
+      final calculator = StringCalculator();
+      expect(calculator.add('2,1001'), equals(2));
+    });
   });
 }
