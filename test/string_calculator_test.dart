@@ -16,5 +16,11 @@ void main() {
     test('returns the sum of numbers separated by a comma', () {
       expect(calculator.add('1,5'), equals(6));
     });
+
+    test('handles newlines as separators', () {
+      final calculator = StringCalculator();
+      expect(calculator.add('1\n2,3'), equals(6));
+    });
+
   });
 }
