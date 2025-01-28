@@ -22,5 +22,10 @@ void main() {
       expect(calculator.add('1\n2,3'), equals(6));
     });
 
+    test('throws an exception for negative numbers', () {
+      final calculator = StringCalculator();
+      expect(() => calculator.add('1,-2,3'), throwsA(isA<Exception>()));
+    });
+
   });
 }
